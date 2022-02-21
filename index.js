@@ -17,10 +17,10 @@ async function updateVnjson(localProject){
   console.log('[ extract zip ]')
 
 
-    const _update = await getHash(config.update)
-    const _local = await getHash(config.local)
+  const _update = await getHash(config.update)
+  const _local = await getHash(config.local)
 
-    compare(_update, _local, config)
+  compare(_update, _local, config)
 
 
 
