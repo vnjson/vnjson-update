@@ -1,12 +1,10 @@
-const fs = require('fs-extra')
-const diff = require('diff-arrays-of-objects');
-const path = require('path')
-const getHash = require('./lib/get-hash.js')
-const getUpdate = require('./lib/get-update.js')
-const compare = require('./lib/compare.js')
+const fs = require('fs-extra');
+const path = require('path');
+const readDir = require('./lib/read-dir.js')
+const getUpdate = require('./lib/get-update.js');
+const overwrite = require('./lib/overwrite.js');
 
 async function updateVnjson(localProject){
-
   const config = {
       url: 'https://github.com/vnjson/mcap/archive/refs/heads/main.zip',
       zip: '.vnjson',
@@ -17,10 +15,10 @@ async function updateVnjson(localProject){
   console.log('[ extract zip ]')
 
 
-  const _update = await getHash(config.update)
-  const _local = await getHash(config.local)
+  const _update = await readDir(config.update);
 
-  compare(_update, _local, config)
+
+  overwrite(_update,  config);
 
 
 
