@@ -17,7 +17,7 @@ updateVnjson(config);
 async function updateVnjson(configGlobal){
   
   const config = {
-      url: configGlobal.source||'https://github.com/vnjson/mcap/archive/refs/heads/main.zip',
+      url: configGlobal.updateUrl||'https://github.com/vnjson/mcap/archive/refs/heads/main.zip',
       zip: '.vnjson',
       update: '.vnjson/mcap-main',
       local: 'src'
